@@ -7,5 +7,6 @@
     <orderEntry type="inheritedJdk" />
     <orderEntry type="sourceFolder" forTests="false" />
     <orderEntry type="module" module-name="pythonProject2" />
+    <orderEntry type="module" module-name="pythonProject3" />
   </component>
 </module>
