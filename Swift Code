@@ -1,7 +1,7 @@
 //@ALL RIGHTS RESERVED NAVEENKUMAR MURALITHARAN
 
 //-----------trimmed Code for localization-----------------
-/*public enum Language_call: String {
+public enum Language_call: String {
  case bn = "bn-IN"
  case de = "de"
  case el = "el"
