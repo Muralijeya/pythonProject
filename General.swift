@@ -1,4 +1,4 @@
-
+//@ALL RIGHTS RESERVED NAVEENKUMAR MURALITHARAN
 import Foundation
 
 public protocol LocalizationParsing: RawRepresentable {
