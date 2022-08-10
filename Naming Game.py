@@ -13,11 +13,9 @@ def totalPlayers() :
     totalPlayers = int(input("Please Enter Total Number of Players(min 2 : max4) : "))
     return totalPlayers
 
-
 def totalWords() :
     totalPlayers = int(input("Please Enter Total Number of words to play this game : "))
     return totalPlayers
-
 
 def outputPlayer(totalPeople) :
     playerArr = []
