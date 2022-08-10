@@ -11,10 +11,31 @@ import  sys
 def totalPlayers() :
     totalPlayers = int(input("Please Enter Total Number of Players(min 2 : max4) : "))
     return totalPlayers
+def totalWords() :
+    totalPlayers = int(input("Please Enter Total Number of words to play this game : "))
+    return totalPlayers
+def outputPlayer(totalPeople) :
+    playerArr = []
+    wordArray = []
+    totalWord = totalWords()
+    for i in range (1, totalPeople + 1, 1) :
 
-def outputPlayer() :
-    return "Execute"
+        player = input("Enter player name :" )
+        playerArr.append(player)
+    for word in range(1, totalWord + 1 , 1) :
+        for i in range(len(playerArr)) :
+            playerArr[i] = input("Enter the word : ").upper()
+            if len(wordArray) == 0 :
+                wordArray.append(playerArr[i])
+            else :
+                for findWord in range(len(wordArray)) :
+                    if wordArray[findWord] == playerArr[i] :
+                        print("Same Word repeated Again")
+                        return wordArray
 
+                wordArray.append(playerArr[i])
+    print("Game Over")
+    return wordArray
 # def countCheck(totalPeople):
 #     if totalPeople > 1 and totalPeople < 5:
 #         return outputPlayer()
@@ -24,14 +45,15 @@ print("Naming Gaming")
 print("Let's Start")
 #totalPlayers()
 attempt = 1
+#totalWords()
 totalPeople = totalPlayers()
 if totalPeople > 1 and totalPeople < 5 :
-    print(outputPlayer())
+    print(outputPlayer(totalPeople))
 elif totalPeople < 2 or totalPeople > 4  :
     print("Total Players should be less than 5 or greater than 1(More Than 1 attempt will EXIT the game): ",   attempt,"st attempt")
     totalPeople = totalPlayers()
     if totalPeople > 1 and totalPeople < 5 :
-        print(outputPlayer())
+        print(outputPlayer(totalPeople))
     else:
         print("Total Players should be less than 5 or greater than 1(More Than 1 attempt will EXIT the game): ", attempt + 1 ,"nd attempt")
         print("More than one attempthas been reached")
