@@ -34,6 +34,21 @@
 # while(i<10):
 #   print (list[i])
 #   i=i+1
+# attempt = 1
+# while attempt < 3:
+#     if attempt == 0:
+#         print("Total Players should be less than 5 or greater than 1(More Than 2 attempt will EXIT the game): ",
+#               attempt, "st attempt")
+#         attempt = attempt + 1
+#         countCheck(totalPeople)
+#     elif attempt == 1:
+#         print("Total Players should be less than 5 or greater than 1(More Than 2 attempt will EXIT the game): ",
+#               attempt, "nd attempt")
+#         attempt = attempt + 1
+#         countCheck(totalPeople)
+#     else:
+#         sys.exit("More than two attempts have arrised : GAME OVER")
+
 #Direction problem of mallow
 import sys
 numOfLaps = int(input("Enter the Number of laps: "))

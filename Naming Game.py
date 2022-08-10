@@ -7,16 +7,34 @@
 #3.The words which are already used should not be used again.
 #4.Timing for a word will be used in development progress.
 #5.if word is not guessed then the game will be end.
+import  sys
 def totalPlayers() :
     totalPlayers = int(input("Please Enter Total Number of Players(min 2 : max4) : "))
     return totalPlayers
 
+def outputPlayer() :
+    return "Execute"
+
+# def countCheck(totalPeople):
+#     if totalPeople > 1 and totalPeople < 5:
+#         return outputPlayer()
+
+
 print("Naming Gaming")
 print("Let's Start")
 #totalPlayers()
+attempt = 1
 totalPeople = totalPlayers()
 if totalPeople > 1 and totalPeople < 5 :
-    print("Execute")
-else :
-    print("Please enter the players less han 5 and greater than 1")
-    totalPlayers()
+    print(outputPlayer())
+elif totalPeople < 2 or totalPeople > 4  :
+    print("Total Players should be less than 5 or greater than 1(More Than 1 attempt will EXIT the game): ",   attempt,"st attempt")
+    totalPeople = totalPlayers()
+    if totalPeople > 1 and totalPeople < 5 :
+        print(outputPlayer())
+    else:
+        print("Total Players should be less than 5 or greater than 1(More Than 1 attempt will EXIT the game): ", attempt + 1 ,"nd attempt")
+        print("More than one attempthas been reached")
+        sys.exit("GAME OVER . Reason: Imapporiate Number Of Players In Game As Per Rule")
+
+
