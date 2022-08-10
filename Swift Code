@@ -1,4 +1,4 @@
-//@ALL RIGHTS RESERVED NAVEENKUMAR MURALITHARAN
+#© 2022 NaveenKumar MuraliTharan. All Rights Reserved.
 
 //-----------trimmed Code for localization-----------------
 public enum Language_call: String {

@@ -1,3 +1,4 @@
+#© 2022 NaveenKumar MuraliTharan. All Rights Reserved.
 # num = int(input("enter the capacity of the array: "))
 # arrSet = []
 # positive = 1

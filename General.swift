@@ -1,4 +1,4 @@
-//@ALL RIGHTS RESERVED NAVEENKUMAR MURALITHARAN
+//© 2022 NaveenKumar MuraliTharan. All Rights Reserved.
 import Foundation
 
 public protocol LocalizationParsing: RawRepresentable {
