@@ -10,15 +10,13 @@
 def totalPlayers() :
     totalPlayers = int(input("Please Enter Total Number of Players(min 2 : max4) : "))
     return totalPlayers
-def checkPlayerCount(totalPeople) :
-    if totalPeople < 2 or totalPeople > 4:
-        print("Please enter the players less han 5 and greater than 1")
-        totalPlayers()
-
 
 print("Naming Gaming")
 print("Let's Start")
 #totalPlayers()
 totalPeople = totalPlayers()
-playerCheck = 0
-while i == 0 :
+if totalPeople > 1 and totalPeople < 5 :
+    print("Execute")
+else :
+    print("Please enter the players less han 5 and greater than 1")
+    totalPlayers()
