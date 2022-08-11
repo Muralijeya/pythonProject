@@ -45,30 +45,13 @@ def outputPlayer(totalPeople) :
             else :
                 startingLetter = getWord[::-1]
                 startingLetter = startingLetter[0]
+                print("Please Enter the word starts with : ", startingLetter)
                 for findWord in range(len(playerArr)) :
-
-                    # if getWord[0] == startingLetter :
-                    #     if playerArr[findWord] == getWord:
-                    #         print("Same Word repeated Again")
-                    #         return playerArr
-                    #
-                    #     playerArr.append(getWord)
-                    # else :
-                    #     print("")
-                    print("Please Enter the word starts with : ", startingLetter)
-
                     if playerArr[findWord] == getWord:
                         print("Same Word repeated Again")
                         return playerArr
 
-                    elif getWord[0] == startingLetter :
-                        playerArr.append(getWord)
-                        startingLetter = getWord[::-1]
-                        startingLetter = startingLetter[0]
-                    else :
-                        print("First letter nt same")
-                        print(playerNameArr[i], "Lost the game")
-                        return playerNameArr
+                playerArr.append(getWord)
 
     print("Game Over")
     return playerArr
