@@ -131,3 +131,5 @@ public enum Language_call: String {
  //        }
  //    }
  //}
+
+ first get word no conditions check just append in the array and take the last letter of the word and store it in a variable and

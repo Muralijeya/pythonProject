@@ -19,33 +19,59 @@ def totalWords() :
 
 def outputPlayer(totalPeople) :
     playerArr = []
-    wordArray = []
+    playerNameArr = []
+    # wordArray = []
+    startingLetter = ""
     totalWord = totalWords()
 
     for i in range (1, totalPeople + 1, 1) :
         player = input("Enter player name :" )
-        playerArr.append(player)
+        playerNameArr.append(player)
 
     for word in range(1, totalWord + 1 , 1) :
 
-        for i in range(len(playerArr)) :
-            playerArr[i] = input("Enter the word : ").upper()
+        for i in range(len(playerNameArr)) :
+            print(playerNameArr[i], "Its Your turn : ")
+            getWord = input().upper()
+            # playerArr.append(getWord)
 
-            if len(wordArray) == 0 :
-                wordArray.append(playerArr[i])
+            if len(playerArr) == 0 :
+                playerArr.append(getWord)
+                startingLetter = getWord[::-1]
+                startingLetter = startingLetter[0]
+                print("Please Enter the word starts with : ", startingLetter)
+
 
             else :
+                startingLetter = getWord[::-1]
+                startingLetter = startingLetter[0]
+                for findWord in range(len(playerArr)) :
 
-                for findWord in range(len(wordArray)) :
+                    # if getWord[0] == startingLetter :
+                    #     if playerArr[findWord] == getWord:
+                    #         print("Same Word repeated Again")
+                    #         return playerArr
+                    #
+                    #     playerArr.append(getWord)
+                    # else :
+                    #     print("")
+                    print("Please Enter the word starts with : ", startingLetter)
 
-                    if wordArray[findWord] == playerArr[i] :
+                    if playerArr[findWord] == getWord:
                         print("Same Word repeated Again")
-                        return wordArray
+                        return playerArr
 
-                wordArray.append(playerArr[i])
+                    elif getWord[0] == startingLetter :
+                        playerArr.append(getWord)
+                        startingLetter = getWord[::-1]
+                        startingLetter = startingLetter[0]
+                    else :
+                        print("First letter nt same")
+                        print(playerNameArr[i], "Lost the game")
+                        return playerNameArr
 
     print("Game Over")
-    return wordArray
+    return playerArr
 
 # def countCheck(totalPeople):
 #     if totalPeople > 1 and totalPeople < 5:
