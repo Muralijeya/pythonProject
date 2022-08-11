@@ -17,6 +17,12 @@ def totalWords() :
     totalPlayers = int(input("Please Enter Total Number of words to play this game : "))
     return totalPlayers
 
+def startLetterLogic(startingLetter, getWord) -> bool:
+    if startingLetter == getWord[0]:
+        return 0
+    else:
+        return 1
+
 def outputPlayer(totalPeople) :
     playerArr = []
     playerNameArr = []
@@ -43,16 +49,22 @@ def outputPlayer(totalPeople) :
 
 
             else :
-                startingLetter = getWord[::-1]
-                startingLetter = startingLetter[0]
-                print("Please Enter the word starts with : ", startingLetter)
-                for findWord in range(len(playerArr)) :
-                    if playerArr[findWord] == getWord:
-                        print("Same Word repeated Again")
-                        return playerArr
+                if startingLetter == getWord[0] :
+                    startingLetter = getWord[::-1]
+                    startingLetter = startingLetter[0]
+                    print("Please Enter the word starts with : ", startingLetter)
+                    for findWord in range(len(playerArr)):
+                        if playerArr[findWord] == getWord:
+                            print("Same Word repeated Again")
+                            return playerArr
+                    playerArr.append(getWord)
+                    # returnElement = startLetterLogic(startingLetter, getWord)
+                    # print(returnElement)
 
-                playerArr.append(getWord)
-
+                else :
+                    print(playerNameArr[i],"Lost the Game. The word does not have the starting letter as expected")
+                    print("Game Over")
+                    sys.exit()
     print("Game Over")
     return playerArr
 
