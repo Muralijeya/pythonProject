@@ -11,17 +11,49 @@ import  sys
 
 def totalPlayers() :
     totalPlayers = int(input("Please Enter Total Number of Players(min 2 : max4) : "))
+
     return totalPlayers
+
+def playersCountLogic(totalPeople) :
+    if totalPeople > 1 and totalPeople < 5 :
+        return outputPlayer(totalPeople)
+
+    elif totalPeople < 2 or totalPeople > 4:
+        print("Total Players should be less than 5 or greater than 1(More Than 1 attempt will EXIT the game): 1st Attempt")
+        totalPeople = totalPlayers()
+
+        if totalPeople > 1 and totalPeople < 5:
+            return outputPlayer(totalPeople)
+
+        else:
+            print("Total Players should be less than 5 or greater than 1(More Than 1 attempt will EXIT the game): 2nd attempt")
+            print("More than one attempts been reached")
+            sys.exit("GAME OVER . Reason: Imapporiate Number Of Players In Game As Per Rule")
+
 
 def totalWords() :
     totalPlayers = int(input("Please Enter Total Number of words to play this game : "))
-    return totalPlayers
+    if totalPlayers == 0 :
+        print("Word count should be greater than or equal to 1")
+        totalPlayers = int(input("Please Enter Total Number of words to play this game : "))
+        if totalPlayers == 0 :
+            sys.exit("Words Cannot be 0")
+        return totalPlayers
+    else :
+        return totalPlayers
 
-def startLetterLogic(startingLetter, getWord) -> bool:
-    if startingLetter == getWord[0]:
-        return 0
-    else:
-        return 1
+# def startLetterLogic(startingLetter, getWord) -> bool:
+#     if startingLetter == getWord[0]:
+#         return 0
+#     else:
+#         return 1
+
+# def startingLetterLogic() :
+#     startingLetter = getWord[::-1]
+#     startingLetter = startingLetter[0]
+#
+#     print("Please Enter the word starts with : ", startingLetter)
+
 
 def outputPlayer(totalPeople) :
     playerArr = []
@@ -45,6 +77,7 @@ def outputPlayer(totalPeople) :
                 playerArr.append(getWord)
                 startingLetter = getWord[::-1]
                 startingLetter = startingLetter[0]
+
                 print("Please Enter the word starts with : ", startingLetter)
 
 
@@ -76,23 +109,6 @@ def outputPlayer(totalPeople) :
 print("Naming Gaming")
 print("Let's Start")
 #totalPlayers()
-attempt = 1
 #totalWords()
 totalPeople = totalPlayers()
-
-if totalPeople > 1 and totalPeople < 5 :
-    print(outputPlayer(totalPeople))
-
-elif totalPeople < 2 or totalPeople > 4  :
-    print("Total Players should be less than 5 or greater than 1(More Than 1 attempt will EXIT the game): ",   attempt,"st attempt")
-    totalPeople = totalPlayers()
-
-    if totalPeople > 1 and totalPeople < 5 :
-        print(outputPlayer(totalPeople))
-
-    else:
-        print("Total Players should be less than 5 or greater than 1(More Than 1 attempt will EXIT the game): ", attempt + 1 ,"nd attempt")
-        print("More than one attempthas been reached")
-        sys.exit("GAME OVER . Reason: Imapporiate Number Of Players In Game As Per Rule")
-
-
+print(playersCountLogic(totalPeople))
