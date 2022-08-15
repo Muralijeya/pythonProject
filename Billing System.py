@@ -20,7 +20,7 @@ if premium == "Y" :
         for i in range(0, purchasedByCustomer, 1):
             itemCode = int(input("Enter the Code"))
             itemCount = int(input("Enter the Count"))
-            for i in range(0, itemsAtShop, 1):
+            for j in range(0, itemsAtShop, 1):
                 if itemCode == codePriceTax[i][0]:
                     customerPurchase.append([itemCode, itemCount])
             if customerPurchase == []:
@@ -35,7 +35,7 @@ elif premium == "N" :
         for i in range(0, purchasedByCustomer, 1):
             itemCode = int(input("Enter the Code"))
             itemCount = int(input("Enter the Count"))
-            for i in range(0, itemsAtShop, 1):
+            for j in range(0, itemsAtShop, 1):
                 if itemCode == codePriceTax[i][0]:
                     customerPurchase.append([itemCode, itemCount])
             if customerPurchase == []:
@@ -103,3 +103,26 @@ print(discount)
 print(round(discount))
 
 print(cashPaidByCus - round(discount))
+remainingMoney = 0
+
+arrat = []
+remainingMoney = cashPaidByCus - round(discount)
+if remainingMoney != 0 :
+    for i in range(0, len(possibleNotesDenoArray), 1):
+        cou = possibleNotesDenoArray[i][1]
+        route = 0
+        while cou > 0:
+            remainingMoney = remainingMoney - possibleNotesDenoArray[i][0]
+            if remainingMoney < 0:
+                remainingMoney = remainingMoney + possibleNotesDenoArray[i][0]
+                break
+            else:
+                route = route + 1
+                cou = cou - 1
+        if route > 0 :
+            arrat.append([possibleNotesDenoArray[i][0], route])
+    for i in range(0, len(arrat), 1):
+        print(arrat[i][0],"|",arrat[i][1])
+    print("==End_Bill==")
+else :
+    print("==End_Bill==")
