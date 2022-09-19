@@ -106,8 +106,40 @@
 # b = input("Enter the value")
 # c = input("Enter the math function")
 # ans = calc(a, b, c)
-# print(ans)
-arr = [1,2,3,4,5]#changbel and only Same datatype and repeatable
-list1 = ["NAveen", 1, 1.0]#changbel and only diff datatype and repeatable
-tuple = ("NAveen", 1, 1.0)#unChangable and only diff datatype
-set = {"NAveen", 1, 1.0}#unChangable and only diff datatype and unrepeatable
+# # print(ans)
+# arr = [1,2,3,4,5]#changbel and only Same datatype and repeatable
+# list1 = ["NAveen", 1, 1.0]#changbel and only diff datatype and repeatable
+# tuple = ("NAveen", 1, 1.0)#unChangable and only diff datatype
+# set = {"NAveen", 1, 1.0}#unChangable and only diff datatype and unrepeatable
+
+# list1 = ["Naveen",2,3,"Sabari",5]
+#
+# for name in range(0, len(list1), 1) :
+#     print(list1[name])
+# num1 = int(input("enter"))#2
+# num2 = int(input("enter"))#10
+#
+# for i in range(1,num2+1,1):
+#     print(i,"*",num1,"=",i*num1)
+list1 = []
+len1 = int(input("enter length"))
+for i in range(0,len1,1):
+    a = int(input("Enter Number"))
+    list1.append(a)
+odd = []
+even = []
+for i in range(0,len(list1),1) :
+    if list1[i] % 2 == 0:
+        even.append(list1[i])
+    else:
+        odd.append(list1[i])
+print(odd)
+print(even)
+
+
+ans1 = sorted(odd)
+ans2 = []
+for i in range(len(ans1)-1,-1,-1) :
+    ans2.append(ans1[i])
+print(ans2)
+
