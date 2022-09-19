@@ -74,36 +74,40 @@
 # print(operations(a,b,c))
 #
 # # operations('^')
-
-
-def common(res) :
-    if res < 0:
-        d = res * (-1)
-        return d
-    else :
-        return res
-def calc(a,b,c) :
-    if c == '+':
-        res = int(a) + int(b)
-        return common(res)
-    elif c == '-':
-        res = int(a) - int(b)
-        return common(res)
-    elif c == '*':
-        res = int(a) * int(b)
-        return common(res)
-    elif c == '/':
-        res = int(a) / int(b)
-        return common(res)
-    elif c == '%':
-        res = int(a) % int(b)
-        return common(res)
-    else:
-        return "Invalid Symbol"
-
-
-a = input("Enter the value")
-b = input("Enter the value")
-c = input("Enter the math function")
-ans = calc(a, b, c)
-print(ans)
+#
+#
+# def common(res) :
+#     if res < 0:
+#         d = res * (-1)
+#         return d
+#     else :
+#         return res
+# def calc(a,b,c) :
+#     if c == '+':
+#         res = int(a) + int(b)
+#         return common(res)
+#     elif c == '-':
+#         res = int(a) - int(b)
+#         return common(res)
+#     elif c == '*':
+#         res = int(a) * int(b)
+#         return common(res)
+#     elif c == '/':
+#         res = int(a) / int(b)
+#         return common(res)
+#     elif c == '%':
+#         res = int(a) % int(b)
+#         return common(res)
+#     else:
+#         return "Invalid Symbol"
+#
+#
+# a = input("Enter the value")
+# b = input("Enter the value")
+# c = input("Enter the math function")
+# ans = calc(a, b, c)
+# print(ans)
+arr = [1,2,3,4,5]#changbel and only Same datatype and repeatable
+list1 = ["NAveen", 1, 1.0]#changbel and only diff datatype and repeatable
+tuple = ("NAveen", 1, 1.0)#unChangable and only diff datatype
+set = {"NAveen", 1, 1.0}#unChangable and only diff datatype and unrepeatable
