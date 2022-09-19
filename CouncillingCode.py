@@ -1,23 +1,23 @@
 noOfClg = int(input("Enter clg numbers :"))
-# clgDetailArr = [["2021/08/18", 1001, 2],["2021/08/19", 1002, 2],["2021/08/20", 1003, 2],["2021/08/21", 1004, 2],["2021/08/22", 1005, 2]]
-clgDetailArr = []
-for i in range(0, noOfClg, 1) :
-    year = input("year")
-    slot = int(input("Enter slot numbers :"))
-    slotCount = int(input("Enter slot count :"))
-    clgDetailArr.append([year, slot, slotCount])
+clgDetailArr = [["2021/08/18", 1001, 2],["2021/08/19", 1002, 2],["2021/08/20", 1003, 2],["2021/08/21", 1004, 2],["2021/08/22", 1005, 2]]
+# clgDetailArr = []
+# for i in range(0, noOfClg, 1) :
+#     year = input("year")
+#     slot = int(input("Enter slot numbers :"))
+#     slotCount = int(input("Enter slot count :"))
+#     clgDetailArr.append([year, slot, slotCount])
 noOfApply = int(input("apply"))
-# tuArray = [[101, 99, 20, 95, 90], [102, 93, 21, 95, 90], [103, 93, 22, 95, 90], [104, 92, 23, 95, 90], [105, 92, 23, 96, 90], [106, 91, 24, 97, 90], [107, 91, 24, 99, 91], [108, 90, 25, 98, 92], [109, 90, 25, 98, 92]]
-stuArray = []
-for i in range(0, noOfApply, 1) :
-    stdID = int(input("id"))
-    cutOff = int(input("cutoff:"))
-    age = int(input("Age"))
-    hsc = int(input("hsc:"))
-    sslc = int(input("sslc:"))
-
-    stuArray.append([stdID, cutOff, age, hsc, sslc])
-# print(clgDetailArr)
+stuArray = [[101, 99, 20, 95, 90], [102, 93, 21, 95, 90], [103, 93, 22, 95, 90], [104, 92, 23, 95, 90], [105, 92, 23, 96, 90], [106, 91, 24, 97, 90], [107, 91, 24, 99, 91], [108, 90, 25, 98, 92], [109, 90, 25, 98, 92]]
+# stuArray = []
+# for i in range(0, noOfApply, 1) :
+#     stdID = int(input("id"))
+#     cutOff = int(input("cutoff:"))
+#     age = int(input("Age"))
+#     hsc = int(input("hsc:"))
+#     sslc = int(input("sslc:"))
+#
+#     stuArray.append([stdID, cutOff, age, hsc, sslc])
+# # print(clgDetailArr)
 # print(stuArray)
 for i in range(0, noOfApply, 1):
     for j in range(0, noOfApply-i-1):
@@ -65,8 +65,8 @@ for i in range(0, noOfApply, 1):
                 temp = stuArray[j]
                 stuArray[j] = stuArray[j + 1]
                 stuArray[j + 1] = temp
-
 finalArray = stuArray
+
 print(finalArray)
 
 outputArray = []

@@ -7,7 +7,7 @@
 #3.The words which are already used should not be used again.
 #4.Timing for a word will be used in development progress.
 #5.if word is not guessed then the game will be end.
-import  sys
+import sys
 
 def totalPlayers() :
     totalPlayers = int(input("Please Enter Total Number of Players(min 2 : max4) : "))
