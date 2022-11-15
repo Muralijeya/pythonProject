@@ -1,4 +1,5 @@
 #Direction problem of mallow
+#© 2022 NaveenKumar MuraliTharan. All Rights Reserved.
 
 
 import sys

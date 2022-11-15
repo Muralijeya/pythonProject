@@ -1,0 +1,135 @@
+#© 2022 NaveenKumar MuraliTharan. All Rights Reserved.
+
+//-----------trimmed Code for localization-----------------
+public enum Language_call: String {
+ case bn = "bn-IN"
+ case de = "de"
+ case el = "el"
+ case en = "en"
+ case sp = "es"
+ case fr = "fr"
+ case gu = "gu"
+ case hi = "hi"
+ case it = "it"
+ case ja = "ja"
+ case kn = "kn"
+ case ml = "ml"
+ case mr = "mr"
+ case nl = "nl"
+ case pa = "pa"
+ case pt = "pt-PT"
+ case ru = "ru"
+ case ta = "ta-IN"
+ case te = "te"
+ case tr = "tr"
+ case ur = "ur-Arab-IN"
+ case vi = "vi"
+ case zhHans = "zh-Hans"
+ case zhHant = "zh-Hant"
+ public func changeToSelected() -> String {
+ return self.rawValue
+ }
+ }
+
+ public func language_Output(string: String, value: String, arguments: [CVarArg]) -> String {
+ let fallbackLanguage = "en"
+ guard let fallbackBundlePath = Bundle.module.path(forResource: fallbackLanguage, ofType: "lproj") else { return value }
+ guard let fallbackBundle = Bundle(path: fallbackBundlePath) else { return value}
+ let fallbackString = fallbackBundle.localizedString(forKey: value, value: "", table: "")
+ guard
+ let bundlePath = Bundle.module.path(forResource: string, ofType: "lproj"),
+ let bundle = Bundle(path: bundlePath)
+ else { return "" }
+ return String(format:  NSLocalizedString(value, bundle: bundle, value: fallbackString, comment: "Language Change"), arguments: arguments)
+ }
+ public func language_FallBack(value: String, arguments: [CVarArg]) -> String{
+
+ if Localization.language == false {
+ let regionalLanguage = ["ta", "gu", "ml", "bn", "kn", "mr", "pa", "te", "ur"]
+ for language in regionalLanguage {
+ if Locale.autoupdatingCurrent.languageCode == language {
+ return language_Output(string: Language_call.en.changeToSelected(), value: value, arguments: arguments)
+ }
+ }
+ if Locale.autoupdatingCurrent.languageCode == "pt" {
+ return language_Output(string: Language_call.pt.changeToSelected(), value: value, arguments: arguments)
+ }
+ else if Locale.current.identifier == "zh-Hans_US" {
+ return language_Output(string: Language_call.zhHans.changeToSelected(), value: value, arguments: arguments)
+ }
+ else if Locale.current.identifier == "zh-Hant_US" {
+ return language_Output(string: Language_call.zhHant.changeToSelected(), value: value, arguments: arguments)
+ }
+ var name = ""
+ let foreign = ["en", "ru", "hi", "de", "el", "es", "fr", "it", "ja", "nl", "tr", "vi"]
+ for foreign in foreign {
+ if Locale.autoupdatingCurrent.languageCode == foreign {
+ name = language_Output(string: (Language_call.init(rawValue: foreign)?.changeToSelected())!, value: value, arguments: arguments)
+ }
+ }
+ return name
+ }
+ else {
+ if Locale.current.identifier == "zh-Hans_US" {
+ return language_Output(string: Language_call.zhHans.changeToSelected(), value: value, arguments: arguments)
+ }
+ else if Locale.current.identifier == "zh-Hant_US" {
+ return language_Output(string: Language_call.zhHant.changeToSelected(), value: value, arguments: arguments)
+ }
+ let specialCaseLanguagesMain = ["ta", "bn", "pt", "ur"]
+ let specialCaseLanguagesSub = ["ta-IN", "bn-IN", "pt-PT", "ur-Arab-IN"]
+
+ let languageChnage = Locale.autoupdatingCurrent.languageCode
+ guard
+ let bundlePath = Bundle.module.path(forResource: languageChnage, ofType: "lproj"),
+ let bundle = Bundle(path: bundlePath)
+ else {
+ var name = ""
+ for langMain in specialCaseLanguagesMain {
+ if Locale.autoupdatingCurrent.languageCode == langMain {
+ let index = specialCaseLanguagesMain.firstIndex(of: langMain)
+ name = language_Output(string: Language_call.init(rawValue: specialCaseLanguagesSub[index!])!.changeToSelected(), value: value, arguments: arguments)
+ }
+ }
+ return name
+ }
+ let allLanguage = ["en", "ru", "hi", "de", "el", "es", "fr", "it", "ja", "nl", "tr", "vi", "gu", "ml", "kn", "mr", "pa",  "te"]
+ var allLanguageReturn = ""
+ for allLanguage in allLanguage {
+ if Locale.autoupdatingCurrent.languageCode == allLanguage {
+ allLanguageReturn = language_Output(string: Language_call.init(rawValue: allLanguage)!.changeToSelected(), value: value, arguments: arguments)
+ }
+ }
+
+ return allLanguageReturn
+ }
+ }
+
+
+
+
+ //-------reference------------
+ //public enum OrderStatus {
+ //    case pending, processing, complete, canceled, no_Of_Project_Completed(String), chat_add_group_error(String), chat_add_error(String, String)
+ //    public var displayName:  String {
+ //        switch self {
+ //        case .complete:
+ //            return NSLocalizedString("Project_Status_Completed",bundle: .module ,comment: "Completed")// Normal translation
+ //        case .pending:
+ //            return NSLocalizedString("Project_Status_Pending",bundle: .module, comment: "Pending")
+ //        case .processing:
+ //            return NSLocalizedString("Project_Status_Processing",bundle: .module, comment: "Processing")
+ //        case .canceled:
+ //            return NSLocalizedString("Project_Status_Cancelled",bundle: .module, comment: "Cancelled")
+ //        case .no_Of_Project_Completed(let progress):
+ //            return String(format:  NSLocalizedString("No_Of_Project_Completed",bundle: .module, comment: "Total"), progress)// Translation with one single argument
+ //        case .chat_add_group_error(let name):
+ //            return String(format:  NSLocalizedString("chat_add_group_error",bundle: .module, comment: "Total"), name, name)// translation with two same arguments
+ //
+ //        case .chat_add_error(let name, let group):
+ //            return String(format: NSLocalizedString("chat_add_error",bundle: .module, comment: "Total"), name, group)// translation with two different arguments
+ //        }
+ //    }
+ //}
+
+ first get word no conditions check just append in the array and take the last letter of the word and store it in a variable and
