@@ -489,3 +489,50 @@ print(denominationOutput(cashPaidByCus, ans5, ans6))
 #     ans1 = ClassAFile.ProductInShop.itemsAtShopFunc(itemsAtShop)
 #     override
 # # print(ans1)
+
+
+
+def anss(ans,arr) :
+    ran = len(arr)
+    while ran > 0:
+        ans = ans + arr[ran - 1]
+        ran = ran - 1
+    return ans, arr[0]
+
+sum = 10
+arr = [1,2,3,4,5,6,7,8,9,10]
+ans = 0
+count = 0
+nav = 0
+fis = 0
+while nav < sum:
+    nav = nav + arr[fis]
+    fis = fis + 1
+# print(nav)
+name = anss(ans,arr)
+# print(name)
+if nav == sum :
+    # print(nav)
+    print(1, fis + 1)
+else :
+    while name[0] != sum:
+        count = count + 1
+        arr.pop(0)
+        # print(arr)
+        name = anss(ans, arr)
+    print(name[0])
+
+    if name[0] == sum:
+        print(arr.index(name[1]) + 2, count + 1)
+#
+
+# print(ran)
+# print(ans)
+# print(arr)
+# name = anss(ans,arr)
+# while name[0] != sum :
+#     # name[1].pop(0)
+#     name = anss(ans,name[1])
+#
+# print(ans)
+# print(arr)
